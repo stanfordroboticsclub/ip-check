@@ -1,0 +1,12 @@
+[Unit]
+Description=IP check slackbot
+After=multi-user.target
+
+[Service]
+Type=idle
+User=ubuntu
+ExecStart=/usr/bin/python /home/ubuntu/ip-check/main.py >> /home/ubuntu/ip-check/log.txt 2>&1 
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
