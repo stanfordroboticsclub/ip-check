@@ -39,7 +39,7 @@ while True:
                         print "Message received: %s" % json.dumps(message, indent=2)
                         print ""
 
-                        out = bot_name
+                        out = request_name
                         slack_client.api_call(
                             "chat.postMessage",
                             channel=message['channel'],
