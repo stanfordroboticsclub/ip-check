@@ -31,6 +31,21 @@ while True:
             while True:
                 for message in slack_client.rtm_read():
                     starts = "<@%s> " + request_name
+                    starts2 = "<@%s> list"
+                    if 'text' in message and message['text'].startswith(starts2 % slack_user_id):
+                        today = datetime.date.today()
+                        print str(today)
+
+                        print "Message received: %s" % json.dumps(message, indent=2)
+                        print ""
+
+                        out = bot_name
+                        slack_client.api_call(
+                            "chat.postMessage",
+                            channel=message['channel'],
+                            text=out,
+                            as_user=True)
+
                     if 'text' in message and message['text'].startswith(starts % slack_user_id):
                         today = datetime.date.today()
                         print str(today)
