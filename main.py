@@ -8,11 +8,7 @@ from slackclient import SlackClient
 import datetime
 import netifaces as ni
 
-from api_key import api_key
-
-interface = 'wlan0'
-request_name = 'demobot'
-bot_name = 'ip-check'
+from config import api_key, interface, request_name, bot_name
 
 while True:
     try:
